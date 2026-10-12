@@ -1,0 +1,230 @@
+:root {
+  color-scheme: light;
+  --ink: #2f2630;
+  --muted: #766c75;
+  --pink-grid: #fdadd8;
+  --pink-line: #fcd3e6;
+  --window-shadow: #fcdfb1;
+  --purple: #534bad;
+  --purple-hover: #40398c;
+  --replace-bg: #fff2a8;
+  --replace-ink: #6d2c91;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background-color: var(--pink-grid);
+  background-image: url("../assets/bg-grid.png");
+  background-repeat: repeat;
+  background-size: 12px 12px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+  background: transparent;
+}
+
+.about-page {
+  display: flex;
+  width: 100%;
+  min-height: 100svh;
+  flex-direction: column;
+  align-items: center;
+  padding: max(32px, env(safe-area-inset-top)) 24px max(32px, env(safe-area-inset-bottom));
+}
+
+.about-window {
+  position: relative;
+  width: min(100%, 680px);
+  scroll-margin-top: 24px;
+}
+
+.about-window-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-window-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--window-shadow);
+  border-radius: 12px;
+  content: "";
+  pointer-events: none;
+  transform: translate(6px, 5px);
+}
+
+.about-titlebar {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  width: 100%;
+  height: 38px;
+  align-items: flex-start;
+  padding: 8px 16px 16px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  background: linear-gradient(
+    90deg,
+    #acb1fd 0%,
+    #a696fc 30.258%,
+    #9c97fc 47.596%,
+    #97a9fc 74.185%,
+    #ac9bfc 100%
+  );
+  border: 1px solid #000;
+  border-radius: 12px 12px 0 0;
+  box-shadow: inset 1px 1px 0 #000, inset 3px 1px 0 #fffffd;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  margin-top: -10px;
+  padding: 30px clamp(20px, 5vw, 48px) 36px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  box-shadow: inset 3px 0 0 var(--pink-line);
+}
+
+.about-heading {
+  padding-bottom: 24px;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+h1 {
+  margin: 0;
+  color: #00000e;
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -.03em;
+}
+
+section {
+  margin-top: 36px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  color: #00000e;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+p {
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.game-visual {
+  margin: 18px 0 24px;
+}
+
+.game-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.game-cta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 12px 22px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  background: var(--purple);
+  border: 1px solid #000;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #f4b5d4;
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.game-cta:hover {
+  color: #fff;
+  background: var(--purple-hover);
+  box-shadow: 2px 2px 0 #f4b5d4;
+  transform: translate(2px, 2px);
+}
+
+.game-cta:focus-visible {
+  outline: 3px solid #7b4ce2;
+  outline-offset: 4px;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 黃色標示代表正式發布前一定要替換的文字。 */
+.replace-me {
+  display: inline-block;
+  padding: 4px 8px;
+  color: var(--replace-ink);
+  font-weight: 800;
+  line-height: 1.45;
+  background: var(--replace-bg);
+  border: 2px dashed #a963c5;
+  border-radius: 6px;
+}
+
+@media (max-width: 560px) {
+  .about-page {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .about-content {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .game-cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-page {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .about-content {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
