@@ -1,7 +1,8 @@
 (() => {
   const componentScript = document.currentScript;
-  const stylesheetUrl = componentScript
-    ? new URL("site-footer.css", componentScript.src).href
+  const componentUrl = componentScript ? new URL(componentScript.src) : null;
+  const stylesheetUrl = componentUrl
+    ? new URL(`site-footer.css${componentUrl.search}`, componentUrl).href
     : "components/site-footer.css";
 
   if (!document.querySelector("link[data-site-footer-styles]")) {
@@ -17,19 +18,22 @@
       if (this.dataset.rendered === "true") return;
 
       const currentPage = this.getAttribute("current-page");
-      const isPrivacyPage = currentPage === "privacy";
-      const isAboutPage = currentPage === "about";
       const links = [
         { key: "game", label: "遊戲首頁", href: "/gift-game/" },
-        { key: "articles", label: "送禮研究所", href: "/gift-game/articles/" },
-        { key: "about", label: "關於我們", href: isAboutPage ? "#about" : "/#about" },
-        { key: "privacy", label: "隱私權政策", href: isPrivacyPage ? "./" : "/privacy/" },
+        {
+          key: "articles",
+          label: "送禮研究所",
+          href: "/gift-game/articles/practical-gift-mistakes/",
+        },
+        { key: "about", label: "關於我們", href: "/#about" },
+        { key: "privacy", label: "隱私權政策", href: "/privacy/" },
       ];
 
       const linkMarkup = links
-        .map(({ key, label, href }) => {
+        .map(({ key, label, href }, index) => {
           const currentAttribute = currentPage === key ? ' aria-current="page"' : "";
-          return `<a href="${href}"${currentAttribute}>${label}</a>`;
+          const separator = index > 0 ? '<span class="site-footer-separator" aria-hidden="true">|</span>' : "";
+          return `${separator}<a href="${href}"${currentAttribute}>${label}</a>`;
         })
         .join("");
 

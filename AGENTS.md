@@ -16,3 +16,10 @@
 
 - `AGENTS.md` 保存會長期反覆適用的協作規則。
 - `docs/launch-checklist.md` 保存目前尚未完成、完成後可勾選的上線事項；狀態改變時更新該檔案，不在這份規則中累積已完成的暫時待辦。
+
+## 共用頁尾元件
+
+- 工作室首頁、隱私權政策及各遊戲共用唯一一份頁尾元件，原始檔位於本專案的 `components/site-footer.js` 與 `components/site-footer.css`。
+- 所有頁面都以網站根目錄絕對路徑 `/components/site-footer.js?v={版本號}` 載入元件，不在遊戲專案複製或另外維護頁尾內容與樣式。
+- 修改共用頁尾後，必須使用尚未使用過的新版本號，並同步更新所有載入頁面的 `?v=`，避免瀏覽器繼續使用舊快取。
+- 各頁以 `<site-footer current-page="...">` 標示目前頁面；必要的寬度差異由共用 CSS 依 `current-page` 控制。
