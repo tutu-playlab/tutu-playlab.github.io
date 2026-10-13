@@ -43,9 +43,9 @@
             ${linkMarkup}
           </nav>
           <p class="site-footer-note">
-            本測驗僅供娛樂參考，現實生活裡每個人都是獨一無二的，送禮沒有正確解答。推薦拿本遊戲的禮物選項跟你的另一半對答案。但本製作團隊不保證你的感情安全。ヾ(´ε&#96;ヾ)
+            本測驗僅供娛樂參考，現實生活裡每個人都是獨一無二的，送禮沒有正確解答。推薦拿本遊戲的禮物選項跟你的另一半對答案。但 Two more games studio 不保證你的感情安全。ヾ(´ε&#96;ヾ)
           </p>
-          <p class="site-footer-copyright">© 2026《送禮大作戰》製作團隊 ALL RIGHTS RESERVED.</p>
+          <p class="site-footer-copyright">© 2026 Two more games studio ALL RIGHTS RESERVED.</p>
         </footer>
       `;
 
