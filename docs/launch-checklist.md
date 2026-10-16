@@ -24,11 +24,15 @@
   - `/gift-game/articles/` 目前會前往第一篇文章。
   - 頁尾的「送禮研究所」已連到 `/gift-game/articles/practical-gift-mistakes/`。
 
-- [ ] **讓 GA4、AdSense、Cookie 同意工具與隱私權政策一致**
-  - GA4、AdSense 與 Cookie 同意工具目前尚未實際啟用。
-  - 現行隱私權政策已描述這些服務；正式宣傳或申請 AdSense 前，必須依實際上線狀態選擇：完成工具設定與同意介面，或把尚未使用的服務改寫為符合現況的說明。
+- [ ] **完成 GA4、Cookie 同意工具與隱私權政策上線驗證**
+  - GA4 與基本同意模式已完成程式設定，待兩個 Repository 合併、部署後驗證正式網址。
+  - 玩家同意分析 Cookie 前不載入 Google Analytics 標籤；拒絕時不傳送分析或無 Cookie 評估訊號。
   - 啟用前再次確認分析事件不含姓名、Email、自由輸入文字或其他可識別個人的資料。
-  - 確認目標地區、Cookie 同意需求、GA4 保存設定、AdSense 設定及頁尾的「隱私與 Cookie 設定」按鈕是否與實際工具一致。
+  - 正式驗證 GA4 DebugView、資料保留設定及頁尾的「隱私與 Cookie 設定」按鈕後再勾選完成。
+
+- [ ] **讓 AdSense 設定與隱私權政策一致**
+  - AdSense 目前尚未啟用，隱私權政策已明確標示為尚未啟用。
+  - 申請或啟用前確認目標地區、同意需求、廣告設定、合作夥伴揭露及使用者控制方式。
 
 - [ ] **取得 Publisher ID 後新增 `ads.txt`**
   - 尚未取得 AdSense Publisher ID 前不建立假資料或佔位檔。

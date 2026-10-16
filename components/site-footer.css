@@ -59,6 +59,34 @@ body.game-active site-footer {
   text-decoration-thickness: 2px;
 }
 
+.site-footer-cookie-settings {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.site-footer-cookie-settings button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #4c4c4c;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.site-footer-cookie-settings button:hover {
+  color: #2f2f2f;
+}
+
+.site-footer-cookie-settings button:focus-visible {
+  outline: 3px solid #7b4ce2;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .site-footer p {
   color: #4c4c4c;
   font-size: 12px;

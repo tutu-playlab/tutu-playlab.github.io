@@ -35,3 +35,11 @@
 - 所有頁面都以網站根目錄絕對路徑 `/components/site-footer.js?v={版本號}` 載入元件，不在遊戲專案複製或另外維護頁尾內容與樣式。
 - 修改共用頁尾後，必須使用尚未使用過的新版本號，並同步更新所有載入頁面的 `?v=`，避免瀏覽器繼續使用舊快取。
 - 各頁以 `<site-footer current-page="...">` 標示目前頁面；必要的寬度差異由共用 CSS 依 `current-page` 控制。
+
+## GA4 與 Cookie 同意元件
+
+- 全站共用的 GA4 載入與分析 Cookie 同意工具由本專案的 `components/analytics-consent.js` 與 `components/analytics-consent.css` 維護，並由共用頁尾載入；各遊戲專案不得複製或繞過這套元件。
+- 採用基本同意模式：玩家同意分析 Cookie 前不載入 Google Analytics 標籤，也不傳送分析或無 Cookie 評估訊號。
+- 同意選擇使用 `localStorage` 保存；頁尾的「隱私與 Cookie 設定」按鈕必須允許玩家重新查看、同意或撤回。
+- Google Signals、廣告儲存、廣告使用者資料及廣告個人化維持停用。未來啟用 AdSense 或廣告功能前，必須另行確認同意選項、隱私權政策與 Google 當時政策。
+- GA4 事件不得包含姓名、Email、電話、自由輸入文字、精確位置或其他可直接識別個人的資料。
