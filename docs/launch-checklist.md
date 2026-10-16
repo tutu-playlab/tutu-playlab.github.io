@@ -33,7 +33,7 @@
 - [ ] **取得 Publisher ID 後新增 `ads.txt`**
   - 尚未取得 AdSense Publisher ID 前不建立假資料或佔位檔。
   - 取得 ID 後，依 AdSense 後台提供的正式紀錄在網站根目錄新增 `ads.txt`。
-  - 上線後確認 `https://tutu-playlab.github.io/ads.txt` 可正常開啟，內容與 AdSense 後台一致。
+  - 上線後確認 `https://twomoregames.space/ads.txt` 可正常開啟，內容與 AdSense 後台一致。
 
 ## 完成條件
 
