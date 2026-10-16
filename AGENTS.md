@@ -18,6 +18,7 @@
 ## 正式宣傳與廣告上線提醒
 
 - 在進行正式宣傳、申請或啟用 AdSense、啟用 GA4、加入 Cookie 同意工具，或移除頁面的 `noindex` 前，必須先完整閱讀並逐項檢查 `docs/launch-checklist.md`。
+- 取得 AdSense Publisher ID 後，必須在網站根目錄新增 Google 提供的正式 `ads.txt` 紀錄，確認 `https://tutu-playlab.github.io/ads.txt` 可正常開啟；取得 ID 前不要放假資料或佔位內容。
 - 只要檢查表仍有未完成項目，協作者就要主動提醒使用者，不能把「網站已經可以公開瀏覽」誤當成「已經適合正式宣傳或申請廣告」。
 - 每個項目必須完成，或由使用者明確決定暫緩及接受影響，才可以視為已處理。
 - 新增或修改分析、廣告、Cookie、聯絡表單、贊助、第三方嵌入、裝置儲存或其他可能影響資料處理的功能時，必須同步檢查實際程式、隱私權政策、Cookie 同意介面與 `docs/launch-checklist.md` 是否一致。
