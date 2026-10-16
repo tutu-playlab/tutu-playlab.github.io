@@ -11,14 +11,15 @@
 
 - [`tutu-playlab/tutu-playlab.github.io`](https://github.com/tutu-playlab/tutu-playlab.github.io) 管理工作室共用內容，包括網站根目錄首頁、`/privacy/` 隱私權政策及 `/components/` 共用元件。
 - [`tutu-playlab/gift-game`](https://github.com/tutu-playlab/gift-game) 管理《送禮大作戰》，發布到 `/gift-game/`，包含遊戲、遊戲專屬文章與相關素材。
-- 兩個 Repository 發布後會組合在同一個 GitHub Pages 網域：工作室首頁為 `https://tutu-playlab.github.io/`，遊戲為 `https://tutu-playlab.github.io/gift-game/`。
+- 兩個 Repository 發布後會組合在同一個 GitHub Pages 網站；玩家使用的正式網址為工作室首頁 `https://twomoregames.space/`，以及遊戲 `https://twomoregames.space/gift-game/`。
+- 網站仍由 GitHub Pages 代管；`https://tutu-playlab.github.io/` 是平台原始網址，不作為玩家正式分享網址，也不更動《送禮大作戰》的 `/gift-game/` 路徑。
 - 影響兩邊的修改，例如團隊品牌、共用頁尾版本、共用導覽或隱私權連結，必須分別建立 branch、Commit、Push 與 Pull Request，並確認兩個 `main` 都完成部署。
 - 分享給玩家時使用正式網站網址；分享給協作者檢查程式或修改時使用對應的 Repository 或 Pull Request 連結。`localhost`、`127.0.0.1` 與 `file://` 只供本機預覽，不能當成對外分享連結。
 
 ## 正式宣傳與廣告上線提醒
 
 - 在進行正式宣傳、申請或啟用 AdSense、啟用 GA4、加入 Cookie 同意工具，或移除頁面的 `noindex` 前，必須先完整閱讀並逐項檢查 `docs/launch-checklist.md`。
-- 取得 AdSense Publisher ID 後，必須在網站根目錄新增 Google 提供的正式 `ads.txt` 紀錄，確認 `https://tutu-playlab.github.io/ads.txt` 可正常開啟；取得 ID 前不要放假資料或佔位內容。
+- 取得 AdSense Publisher ID 後，必須在網站根目錄新增 Google 提供的正式 `ads.txt` 紀錄，確認 `https://twomoregames.space/ads.txt` 可正常開啟；取得 ID 前不要放假資料或佔位內容。
 - 只要檢查表仍有未完成項目，協作者就要主動提醒使用者，不能把「網站已經可以公開瀏覽」誤當成「已經適合正式宣傳或申請廣告」。
 - 每個項目必須完成，或由使用者明確決定暫緩及接受影響，才可以視為已處理。
 - 新增或修改分析、廣告、Cookie、聯絡表單、贊助、第三方嵌入、裝置儲存或其他可能影響資料處理的功能時，必須同步檢查實際程式、隱私權政策、Cookie 同意介面與 `docs/launch-checklist.md` 是否一致。

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tutu-playlab.github.io/sitemap.xml
+Sitemap: https://twomoregames.space/sitemap.xml
