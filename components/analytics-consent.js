@@ -3,13 +3,25 @@
   const CONSENT_STORAGE_KEY = "two-more-games.analytics-consent.v1";
   const CONSENT_GRANTED = "granted";
   const CONSENT_DENIED = "denied";
+  const CONSENT_SOURCE_STORED = "stored";
+  const CONSENT_SOURCE_TIME_ZONE = "device-time-zone";
+  const AUTO_ENABLE_TIME_ZONES = new Set(["Asia/Tokyo", "Asia/Taipei"]);
   const componentScript = document.currentScript;
   const componentUrl = componentScript ? new URL(componentScript.src) : null;
   const stylesheetUrl = componentUrl
     ? new URL(`analytics-consent.css${componentUrl.search}`, componentUrl).href
     : "/components/analytics-consent.css";
 
-  let currentConsent = readStoredConsent();
+  const storedConsent = readStoredConsent();
+  const deviceTimeZone = readDeviceTimeZone();
+  const shouldAutoEnable = storedConsent === null && AUTO_ENABLE_TIME_ZONES.has(deviceTimeZone);
+
+  let currentConsent = shouldAutoEnable ? CONSENT_GRANTED : storedConsent;
+  let consentSource = shouldAutoEnable
+    ? CONSENT_SOURCE_TIME_ZONE
+    : storedConsent
+      ? CONSENT_SOURCE_STORED
+      : null;
   let analyticsLoaded = false;
   let dialog = null;
   let previousFocus = null;
@@ -18,6 +30,14 @@
     try {
       const storedConsent = window.localStorage.getItem(CONSENT_STORAGE_KEY);
       return [CONSENT_GRANTED, CONSENT_DENIED].includes(storedConsent) ? storedConsent : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function readDeviceTimeZone() {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || null;
     } catch (error) {
       return null;
     }
@@ -88,6 +108,7 @@
   function applyConsent(consent) {
     const previousConsent = currentConsent;
     currentConsent = consent;
+    consentSource = CONSENT_SOURCE_STORED;
     storeConsent(consent);
 
     if (consent === CONSENT_GRANTED) {
@@ -122,6 +143,9 @@
   }
 
   function consentStatusText() {
+    if (currentConsent === CONSENT_GRANTED && consentSource === CONSENT_SOURCE_TIME_ZONE) {
+      return `目前設定：依裝置時區 ${deviceTimeZone} 推測，自動啟用分析 Cookie。你可以隨時拒絕。`;
+    }
     if (currentConsent === CONSENT_GRANTED) return "目前設定：已同意分析 Cookie";
     if (currentConsent === CONSENT_DENIED) return "目前設定：已拒絕分析 Cookie";
     return "請選擇是否允許分析 Cookie。拒絕不會影響遊戲功能。";
@@ -165,9 +189,9 @@
       <section class="analytics-consent-dialog" role="dialog" aria-modal="true" aria-labelledby="analyticsConsentTitle" aria-describedby="analyticsConsentDescription">
         <button class="analytics-consent-close" type="button" data-consent-close aria-label="關閉 Cookie 設定">×</button>
         <p class="analytics-consent-eyebrow">Privacy settings</p>
-        <h2 id="analyticsConsentTitle" data-consent-heading tabindex="-1">協助我們改善遊戲？</h2>
+        <h2 id="analyticsConsentTitle" data-consent-heading tabindex="-1">分析 Cookie 設定</h2>
         <p id="analyticsConsentDescription">
-          同意後，我們會使用 Google Analytics 4 統計頁面瀏覽與遊戲操作，例如禮物選擇和結局。事件不包含姓名、Email 或自由輸入內容。
+          我們使用 Google Analytics 4 統計頁面瀏覽與遊戲操作，例如禮物選擇和結局。裝置時區為 Asia/Tokyo 或 Asia/Taipei 時會自動啟用；其他或無法判斷的時區會先詢問。時區只是裝置設定，可能不等於實際所在地。事件不包含姓名、Email 或自由輸入內容。
         </p>
         <p class="analytics-consent-status" data-consent-status></p>
         <p class="analytics-consent-privacy-link"><a href="/privacy/">查看隱私權政策</a></p>
