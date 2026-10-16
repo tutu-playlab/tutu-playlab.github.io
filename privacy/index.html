@@ -12,7 +12,7 @@
     <title>隱私權政策｜Two more games studio</title>
     <link rel="icon" type="image/png" href="/gift-game/assets/question/heart.png" />
     <link rel="stylesheet" href="privacy.css?v=20261013-2" />
-    <script src="/components/site-footer.js?v=20261016-2" defer></script>
+    <script src="/components/site-footer.js?v=20261016-3" defer></script>
   </head>
   <body>
     <main class="privacy-page">
@@ -48,12 +48,12 @@
                 本網站目前不提供會員註冊、登入、留言、聯絡表單、電子報、付款或後端資料庫功能。我們不會透過遊戲要求你提供姓名、Email、電話、地址或其他可直接識別個人的資料。
               </p>
               <p>
-                你在遊戲中選擇的禮物、分數、遊戲進度與結果，會在目前開啟的瀏覽器分頁記憶體中處理。遊戲不會把進度傳送到工作室自有伺服器，也不會由我們建立可辨識個人的玩家帳號紀錄；但如果你同意分析 Cookie，部分遊戲操作的固定代號與統計數值會依下方「Google Analytics 4」章節傳送給 Google。
+                你在遊戲中選擇的禮物、分數、遊戲進度與結果，會在目前開啟的瀏覽器分頁記憶體中處理。遊戲不會把進度傳送到工作室自有伺服器，也不會由我們建立可辨識個人的玩家帳號紀錄；但在網站依裝置時區推測自動啟用分析，或你同意分析 Cookie 後，部分遊戲操作的固定代號與統計數值會依下方「Google Analytics 4」章節傳送給 Google。
               </p>
               <p>
                 重新整理或關閉頁面後，這些暫存的遊戲進度通常會消失；選擇「再測一次」也會重新開始遊戲。遊戲本身目前不使用
                 <code>localStorage</code>、<code>sessionStorage</code>
-                或其他瀏覽器持久儲存功能保存遊戲進度。Cookie 同意工具會使用 <code>localStorage</code> 保存你的分析同意選擇；網站分析資料則依下方「Google Analytics 4」章節處理。
+                或其他瀏覽器持久儲存功能保存遊戲進度。Cookie 同意工具會使用 <code>localStorage</code> 保存你主動做出的分析同意選擇；網站也會在瀏覽器內讀取裝置設定的時區，用來決定是否自動啟用分析或先顯示同意選項。網站不會把這個時區值作為自訂事件參數傳送，也不會另外保存時區判斷結果。網站分析資料依下方「Google Analytics 4」章節處理。
               </p>
             </section>
 
@@ -86,6 +86,9 @@
               <h2 id="privacyGa4">三、Google Analytics 4（GA4）</h2>
               <p>
                 本網站使用 Google Analytics 4（GA4）了解網站與遊戲的使用情況，作為改善內容、操作流程、裝置相容性及整體體驗的參考。
+              </p>
+              <p>
+                當瀏覽器回報的裝置時區為 <code>Asia/Tokyo</code> 或 <code>Asia/Taipei</code>，且你尚未保存同意或拒絕選擇時，網站會自動啟用 GA4。其他或無法判斷的裝置時區會先顯示分析 Cookie 選項，取得同意後才載入 GA4。裝置時區只是裝置設定，不是精確位置，可能因旅行、手動設定或裝置未更新而與實際所在地不同。
               </p>
               <p>GA4 可能處理的資料包括：</p>
               <ul>
@@ -139,13 +142,13 @@
             <section aria-labelledby="privacyCookies">
               <h2 id="privacyCookies">五、Cookie、同意管理與你的選擇</h2>
               <p>
-                Google Analytics 可能依你的同意選擇設定或讀取 Cookie 與類似技術。Google AdSense 與廣告合作夥伴目前尚未載入；若未來啟用，會在啟用前更新本節與同意選項。
+                Google Analytics 可能依裝置時區推測及你的同意選擇設定或讀取 Cookie 與類似技術。Google AdSense 與廣告合作夥伴目前尚未載入；若未來啟用，會在啟用前更新本節與同意選項。
               </p>
               <p>
-                本網站採用基本同意模式。在你同意分析 Cookie 前，Google Analytics 標籤不會載入，也不會向 Google 傳送分析評估資料。廣告儲存、廣告使用者資料及廣告個人化維持停用。
+                當裝置時區為 <code>Asia/Tokyo</code> 或 <code>Asia/Taipei</code>，且你沒有保存過選擇時，網站會推測你主要位於日本或台灣常用時區並自動載入 Google Analytics 標籤。其他或無法判斷的裝置時區採用基本同意模式：在你同意分析 Cookie 前不載入 Google Analytics 標籤，也不向 Google 傳送分析或無 Cookie 評估訊號。廣告儲存、廣告使用者資料及廣告個人化在所有地區維持停用。
               </p>
               <p>
-                若你拒絕分析用途，Google Analytics 標籤不會載入，網站也不會向 Google 傳送分析用途的 Cookie、裝置識別資訊或無 Cookie 評估訊號。若你同意分析用途，標籤才會載入並依你的選擇運作。詳細原理請參閱
+                若你主動拒絕分析用途，該選擇會優先於裝置時區推測；Google Analytics 標籤不會載入，網站也不會向 Google 傳送分析用途的 Cookie、裝置識別資訊或無 Cookie 評估訊號。若你主動同意分析用途，標籤會載入並依你的選擇運作。詳細原理請參閱
                 <a
                   href="https://developers.google.com/tag-platform/security/concepts/consent-mode"
                   target="_blank"
@@ -201,7 +204,7 @@
 
             <section aria-labelledby="privacyRetention">
               <h2 id="privacyRetention">九、資料保存與安全</h2>
-              <p>現行遊戲不會把玩家進度傳送到工作室自有伺服器，因此我們不會保存玩家帳號或可供回復的遊戲進度。玩家同意分析 Cookie 後，GA4 會依前述方式處理遊戲事件代號與統計數值。</p>
+              <p>現行遊戲不會把玩家進度傳送到工作室自有伺服器，因此我們不會保存玩家帳號或可供回復的遊戲進度。在網站依裝置時區推測自動啟用分析，或玩家同意分析 Cookie 後，GA4 會依前述方式處理遊戲事件代號與統計數值。</p>
               <p>
                 GA4 的分析資料會依 GA4 資源中的資料保留設定與前述分析目的保存。Google、GitHub 與其他廣告或基礎服務供應商所處理的資料，其保存期間、安全措施及刪除方式也依各供應商的政策辦理。任何網路傳輸或電子儲存方式都無法保證絕對安全，但我們會在功能與服務變更時重新評估合理的隱私與安全措施。
               </p>

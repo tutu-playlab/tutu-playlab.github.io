@@ -25,8 +25,10 @@
   - 頁尾的「送禮研究所」已連到 `/gift-game/articles/practical-gift-mistakes/`。
 
 - [ ] **完成 GA4、Cookie 同意工具與隱私權政策上線驗證**
-  - GA4 與基本同意模式已完成程式設定，待兩個 Repository 合併、部署後驗證正式網址。
-  - 玩家同意分析 Cookie 前不載入 Google Analytics 標籤；拒絕時不傳送分析或無 Cookie 評估訊號。
+  - GA4 與裝置時區推測／基本同意模式已完成程式設定，待兩個 Repository 合併、部署後驗證正式網址。
+  - 沒有已保存選擇且裝置時區為 `Asia/Tokyo` 或 `Asia/Taipei` 時自動啟用 GA4；其他或無法判斷的時區在玩家同意前不載入 Google Analytics 標籤。
+  - 玩家主動拒絕時不載入 Google Analytics 標籤，也不傳送分析或無 Cookie 評估訊號；主動選擇優先於時區推測。
+  - 正式發布前分別模擬自動啟用時區、需同意時區及無法判斷時區，確認顯示與標籤載入行為符合預期。
   - 啟用前再次確認分析事件不含姓名、Email、自由輸入文字或其他可識別個人的資料。
   - 正式驗證 GA4 DebugView、資料保留設定及頁尾的「隱私與 Cookie 設定」按鈕後再勾選完成。
 
