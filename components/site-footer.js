@@ -13,6 +13,15 @@
     document.head.append(stylesheet);
   }
 
+  if (!document.querySelector("script[data-analytics-consent]")) {
+    const analyticsConsentScript = document.createElement("script");
+    analyticsConsentScript.src = componentUrl
+      ? new URL(`analytics-consent.js${componentUrl.search}`, componentUrl).href
+      : "/components/analytics-consent.js";
+    analyticsConsentScript.dataset.analyticsConsent = "";
+    document.head.append(analyticsConsentScript);
+  }
+
   class SiteFooter extends HTMLElement {
     connectedCallback() {
       if (this.dataset.rendered === "true") return;
@@ -42,6 +51,9 @@
           <nav class="site-footer-links" aria-label="頁尾導覽">
             ${linkMarkup}
           </nav>
+          <p class="site-footer-cookie-settings">
+            <button type="button" data-analytics-settings>隱私與 Cookie 設定</button>
+          </p>
           <p class="site-footer-note">
             本測驗僅供娛樂參考，現實生活裡每個人都是獨一無二的，送禮沒有正確解答。推薦拿本遊戲的禮物選項跟你的另一半對答案。但本團隊不保證你的感情安全。ヾ(´ε&#96;ヾ)
           </p>
