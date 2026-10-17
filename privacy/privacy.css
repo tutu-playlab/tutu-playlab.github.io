@@ -192,6 +192,28 @@ code {
   align-items: center;
 }
 
+.privacy-settings-action button {
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  background: #5a4bb7;
+  border: 2px solid #000;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 #fcdfb1;
+  cursor: pointer;
+}
+
+.privacy-settings-action button:hover {
+  background: #3f3489;
+}
+
+.privacy-settings-action button:focus-visible {
+  outline: 3px solid #7b4ce2;
+  outline-offset: 3px;
+}
+
 /* 黃色標示代表正式發布前一定要替換的文字。 */
 .replace-me {
   display: inline-block;
