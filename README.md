@@ -13,7 +13,7 @@
 ## 正式發布前
 
 - 確認首頁與隱私權政策中的團隊名稱及公開聯絡信箱仍正確。
-- 將首頁與隱私權政策的 robots 設定由 noindex,follow 改回 index,follow。
+- 確認首頁與隱私權政策維持 `index,follow`，需要暫停索引時再明確調整。
 - 確認 GA4、AdSense 與 Cookie 同意機制和政策描述一致。
 - 確認所有圖片與內容具有公開及商業使用權限。
-- 自訂網域啟用後，更新正式網址、canonical、sitemap 與 Search Console。
+- 正式網址、canonical 與 sitemap 已使用 `https://twomoregames.space/`；發布索引相關修改後，在 Search Console 重新提交 sitemap 並檢查主要網址。
