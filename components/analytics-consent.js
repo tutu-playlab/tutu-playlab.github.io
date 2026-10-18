@@ -60,11 +60,9 @@
 
   function updateGoogleConsent(analyticsStorage) {
     ensureDataLayer();
+    // 這個元件只管理 GA4；廣告用途的同意由 Google AdSense CMP 管理。
     window.gtag("consent", "update", {
-      analytics_storage: analyticsStorage,
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
+      analytics_storage: analyticsStorage
     });
   }
 
@@ -214,11 +212,9 @@
   function initialize() {
     addStylesheet();
     ensureDataLayer();
+    // 不在這裡覆寫廣告同意狀態，避免與 Google AdSense CMP 的選擇衝突。
     window.gtag("consent", "default", {
-      analytics_storage: currentConsent === CONSENT_GRANTED ? "granted" : "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
+      analytics_storage: currentConsent === CONSENT_GRANTED ? "granted" : "denied"
     });
 
     window.TwoMoreGamesAnalytics = Object.freeze({
