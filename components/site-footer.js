@@ -32,7 +32,7 @@
         {
           key: "articles",
           label: "送禮研究所",
-          href: "/gift-game/articles/practical-gift-mistakes/",
+          href: "/gift-game/articles/",
         },
         { key: "about", label: "關於我們", href: "/#about" },
         { key: "privacy", label: "隱私權政策", href: "/privacy/" },
